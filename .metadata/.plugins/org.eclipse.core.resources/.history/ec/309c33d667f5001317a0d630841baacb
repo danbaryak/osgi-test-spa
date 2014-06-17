@@ -1,0 +1,38 @@
+package org.site.main;
+
+import java.util.Properties;
+
+import javax.servlet.Servlet;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.http.HttpService;
+import org.tsts.main.Main;
+import org.tsts.main.MainServlet;
+
+public class Activator extends DependencyActivatorBase{
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1)
+			throws Exception {
+		
+		
+	}
+
+	@Override
+	public void init(BundleContext context, DependencyManager manager)
+			throws Exception {
+		
+		manager.add(createComponent().setImplementation(Main.class)
+				.add(createServiceDependency().setService(HttpService.class)));
+////		
+		Properties props = new Properties();
+		props.put("alias", "/");
+		manager.add(createComponent()
+				.setInterface(Servlet.class.getName(), props)
+				.setImplementation(MainServlet.class));
+		
+		System.out.println("Initialized");
+	}
+
+}

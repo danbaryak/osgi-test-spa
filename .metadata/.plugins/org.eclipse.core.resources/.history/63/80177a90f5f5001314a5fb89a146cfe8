@@ -1,0 +1,33 @@
+package org.site.main;
+
+import java.util.Properties;
+
+import javax.servlet.Servlet;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.osgi.framework.BundleContext;
+
+
+public class Activator extends DependencyActivatorBase{
+	@Override
+	public void destroy(BundleContext context, DependencyManager manager)
+			throws Exception {
+		
+		
+	}
+
+	@Override
+	public void init(BundleContext context, DependencyManager manager)
+			throws Exception {
+		
+		Properties props = new Properties();
+		props.put("alias", "/");
+		manager.add(createComponent()
+				.setInterface(Servlet.class.getName(), props)
+				.setImplementation(MainServlet.class));
+		
+		System.out.println("Initialized");
+	}
+
+}

@@ -1,0 +1,7 @@
+.contact {
+	color: red;
+}
+
+.jumbotron {
+	background: red;
+}

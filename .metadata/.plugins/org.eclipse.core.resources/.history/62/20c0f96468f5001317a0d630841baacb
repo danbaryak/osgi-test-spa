@@ -1,0 +1,7 @@
+Bundle-Version: 0.0.0.${tstamp}
+Private-Package:  \
+	org.site.main
+Service-Component:  \
+	*
+Include-Resource: js=web/js, \
+				  css=web/css

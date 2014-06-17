@@ -1,0 +1,7 @@
+body {
+	background: black;
+	color: yellow;
+	font-size: 26px;
+	font-family: 'Helvetica';
+	
+}

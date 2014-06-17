@@ -1,0 +1,9 @@
+Bundle-Version: 0.0.0.${tstamp}
+Service-Component:  \
+	*
+Private-Package:  \
+	org.tsts.main
+Bundle-Activator: org.tsts.main.Activator
+Include-Resource: html=web-resources/html,\
+images=web-resources/images, \
+js=web-resources/js

@@ -1,0 +1,80 @@
+package org.site.main;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.Charsets;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.osgi.framework.Bundle;
+
+public class MainServlet extends HttpServlet {
+
+	private List<String> jsFiles = new ArrayList<>();
+	
+	public void start() {
+		System.out.println("Scanning for lacal JS files");
+		
+	}
+
+	public void jsBundleAdded(Bundle bundle) {
+		System.out.println("Javascript bundle resource added from bundle " + bundle.getSymbolicName() + ": " + bundle.getHeaders().get("X-Web-JSInclude"));
+		addFiles(jsFiles, bundle, String.valueOf(bundle.getHeaders().get("X-Web-JSInclude")));
+	}
+	
+	
+	private void addFiles(List<String> list, Bundle bundle, String pathToAdd) {
+		Enumeration paths = bundle.getEntryPaths(pathToAdd);
+		while (paths.hasMoreElements()) {
+			String path = (String) paths.nextElement();
+			if (path.endsWith("js")) {
+				list.add(path);
+			} else {
+				addFiles(list, bundle, path);
+			}
+		}
+	}
+	
+	private void removeFiles(List<String> list, Bundle bundle, String pathToRemove) {
+		Enumeration paths = bundle.getEntryPaths(pathToRemove);
+		while (paths.hasMoreElements()) {
+			String path = (String) paths.nextElement();
+			if (path.endsWith("js")) {
+				System.out.println("Registering JS file: " + path);
+				list.remove(path);
+			} else {
+				removeFiles(list, bundle, path);
+			}
+		}
+	}
+	public void jsBundleRemoved(Bundle bundle) {
+		removeJsFiles(bundle, String.valueOf(bundle.getHeaders().get("X-Web-JSInclude")));
+	}
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		out.println("<!DOCTYPE html>");
+		out.println("<html>");
+		for (String scriptName : jsFiles) {
+			out.println("<script src=\"" + scriptName + "\"></script>");
+		}
+		out.println("<head>");
+
+		out.println("<body>");
+		out.println("Hello");
+		out.println("</body>");
+		out.println("</html>");
+	}
+
+}

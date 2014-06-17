@@ -1,0 +1,16 @@
+var contactApp = angular.module('contactApp', ['ui.router'] );
+
+contactApp.config(function($stateProvider, $urlRouterProvider) {
+    
+    $urlRouterProvider.otherwise('/home');
+    
+    $stateProvider
+        
+        .state('contact', {
+            url: '/contact',
+            templateUrl: 'contact/partials/contact.html'
+        })
+        
+        
+        
+});

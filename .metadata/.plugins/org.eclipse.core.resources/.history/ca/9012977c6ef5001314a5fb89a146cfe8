@@ -1,0 +1,12 @@
+package org.site.about;
+
+import javax.ws.rs.Path;
+
+@Path("about")
+public class AboutResource {
+
+	
+	public String getAboutText() {
+		return "This is the about text"
+	}
+}
