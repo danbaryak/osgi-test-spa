@@ -9,3 +9,4 @@ Service-Component:  \
 	org.amdatu.web.rest.jaxrs,\
 	org.apache.felix.dependencymanager
 Bundle-Activator: org.site.contact.rest.Activator
+-runee: JavaSE-1.7

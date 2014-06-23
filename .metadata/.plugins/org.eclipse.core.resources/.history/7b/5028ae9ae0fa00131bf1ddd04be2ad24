@@ -1,0 +1,26 @@
+<h1 fade-in-up>Join</h1>
+
+  <script type="text/javascript">
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client:plusone.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+       
+       function signinCallback(authResult) {
+    	   console.log('in signin callback');
+       }
+     })();
+      
+      
+    </script>
+    
+<span id="signinButton"> <span class="g-signin"
+	data-callback="signinCallback" data-clientid="370844477190-ha1d2em4nmcovkpali6d1uolj9nep4uu.apps.googleusercontent.com"
+	data-cookiepolicy="single_host_origin"
+	data-requestvisibleactions="http://schemas.google.com/AddActivity"
+	data-scope="https://www.googleapis.com/auth/plus.login">
+
+
+
+</span>
+</span>

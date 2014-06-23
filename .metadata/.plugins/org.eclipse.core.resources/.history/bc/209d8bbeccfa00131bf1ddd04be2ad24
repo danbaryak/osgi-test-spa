@@ -1,0 +1,8 @@
+package org.site.login.rest;
+
+import javax.ws.rs.Path;
+
+@Path("googlelogin")
+public class LoginResource {
+
+}

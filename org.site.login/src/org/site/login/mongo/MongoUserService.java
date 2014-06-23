@@ -15,7 +15,7 @@ public class MongoUserService implements UserService {
 	
 	private volatile MongoDBService mongo;
 	
-	@Override
+	
 	public List<User> getUsers() {
 		DBCollection col = mongo.getDB().getCollection("users");
 		JacksonDBCollection<User, Object> users = JacksonDBCollection.wrap(col, User.class);
@@ -27,7 +27,7 @@ public class MongoUserService implements UserService {
 		return result;
 	}
 	
-	@Override
+
 	public void addUser(User user) {
 		DBCollection col = mongo.getDB().getCollection("users");
 		JacksonDBCollection<User, Object> users = JacksonDBCollection.wrap(col, User.class);

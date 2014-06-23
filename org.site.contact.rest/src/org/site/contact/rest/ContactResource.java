@@ -14,7 +14,7 @@ public class ContactResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Map<String, String> get() {
-		Map<String, String> result = new HashMap<>();
+		Map<String, String> result = new HashMap<String, String>();
 		result.put("hi", "yush");
 		result.put("another", "one");
 		return result;

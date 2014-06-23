@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;app.js&apos; to &apos;js&apos;&#x0D;&#x0A;- Original project: &apos;org.site.about&apos;&#x0D;&#x0A;- Destination element: &apos;js&apos;&#x0D;&#x0A;- Original element: &apos;app.js&apos;" description="Copy file" element1="static/app.js" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1403513541576" target="/org.site.login/static/js" units="0" version="1.0"/>
+</session>

@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
 <fullyQualifiedTypeName name="org.tsts.main.MainServlet"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
@@ -32,14 +31,17 @@
 <fullyQualifiedTypeName name="org.mongojack.DBCursor"/>
 <fullyQualifiedTypeName name="org.site.login.mongo.MongoUserService"/>
 <fullyQualifiedTypeName name="org.amdatu.mongo.MongoDBService"/>
-<fullyQualifiedTypeName name="javax.ws.rs.Path"/>
 <fullyQualifiedTypeName name="javax.ws.rs.GET"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.site.login.api.User"/>
-<fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
 <fullyQualifiedTypeName name="javax.ws.rs.core.MediaType"/>
 <fullyQualifiedTypeName name="org.apache.felix.dm.DependencyActivatorBase"/>
 <fullyQualifiedTypeName name="org.site.login.rest.UserResource"/>
 <fullyQualifiedTypeName name="org.site.login.api.UserService"/>
+<fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
 <fullyQualifiedTypeName name="org.mongojack.ObjectId"/>
+<fullyQualifiedTypeName name="javax.ws.rs.Path"/>
+<fullyQualifiedTypeName name="org.amdatu.security.tokenprovider.TokenProvider"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.Response"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 </qualifiedTypeNameHistroy>

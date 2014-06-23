@@ -1,0 +1,6 @@
+<div fade-in-up>
+	<h2>Welcome to so.curious.me</h2>
+	<div fade-in-down delay=500>
+		Some explanation here
+	</div>
+</div>

@@ -1,0 +1,28 @@
+app.run(function(mainMenu) {
+	mainMenu.add(4, 'Sign In', 'login');
+	mainMenu.add(5, 'Join', 'join');
+});
+
+app.config(function($stateProvider, $urlRouterProvider) {
+ 
+    $stateProvider
+        
+        .state('login', {
+            url: '/login',
+            templateUrl: 'login/partials/login.html'
+        })
+        
+        .state('join', {
+        	url: '/join',
+        	templateUrl: 'login/partials/join.html',
+        	controller: 'LoginCtrl'
+        })
+        
+        
+});
+
+app.controller('LoginCtrl', ['$scope', function($scope) {
+	$scope.googleLogin = function() {
+		alert('login with google');
+	}
+}]);

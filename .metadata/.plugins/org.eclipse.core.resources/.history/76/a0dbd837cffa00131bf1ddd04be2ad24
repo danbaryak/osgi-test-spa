@@ -1,0 +1,21 @@
+app.run(function(mainMenu) {
+	mainMenu.add(4, 'Sign In', 'login');
+	mainMenu.add(5, 'Join', 'signup');
+});
+
+app.config(function($stateProvider, $urlRouterProvider) {
+ 
+    $stateProvider
+        
+        .state('login', {
+            url: '/login',
+            templateUrl: 'about/partials/home.html'
+        })
+        
+        .state('signup', {
+        	url: '/join',
+        	templateUrl: 'about/partials/about.html'
+        })
+        
+        
+});

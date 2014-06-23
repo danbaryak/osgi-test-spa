@@ -1,0 +1,2 @@
+<h1 fade-in-down>Join</h1>
+<button onclick="googleLogin()" fade-in-down delay=200 class="btn btn-primary btn-lg">Sign in with Google</button>

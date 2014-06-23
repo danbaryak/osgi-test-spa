@@ -1,7 +1,7 @@
 body {
 	background: white;
 	color: black;
-	font-size: 20px;
+	font-size: 19px;
 	font-family: 'Helvetica';
 }
 
@@ -23,4 +23,13 @@ body {
 	border: none;
 	border-bottom: 1px solid lightgrey;
 	width: 100%;
+}
+
+.explanation-box {
+	color: white;
+	background: #B28DBA;
+	border-radius: 10px;
+	padding: 10px;
+	
+	
 }

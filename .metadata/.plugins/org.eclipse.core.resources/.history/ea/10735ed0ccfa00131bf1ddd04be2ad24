@@ -1,0 +1,13 @@
+package org.site.login.rest;
+
+import javax.ws.rs.Path;
+
+import org.amdatu.security.tokenprovider.TokenProvider;
+
+@Path("googlelogin")
+public class LoginResource {
+
+	private volatile TokenProvider tokenProvider;
+	
+	
+}

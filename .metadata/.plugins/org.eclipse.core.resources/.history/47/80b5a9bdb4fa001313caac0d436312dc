@@ -1,0 +1,4 @@
+app.run(function(mainMenu) {
+	mainMenu.add(4, 'Login', 'login');
+})
+	

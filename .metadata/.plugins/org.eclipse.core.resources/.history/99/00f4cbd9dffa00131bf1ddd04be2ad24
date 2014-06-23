@@ -1,0 +1,13 @@
+<h1 fade-in-up>Join</h1>
+
+<button ng-click="googleLogin()" fade-in delay=200 class="btn btn-primary btn-lg">Sign in with Google</button>
+<span id="signinButton">
+  <span
+    class="g-signin"
+    data-callback="signinCallback"
+    data-clientid="CLIENT_ID"
+    data-cookiepolicy="single_host_origin"
+    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+    data-scope="https://www.googleapis.com/auth/plus.login">
+  </span>
+</span>

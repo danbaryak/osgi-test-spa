@@ -1,0 +1,31 @@
+body {
+	background: white;
+	color: black;
+	font-size: 19px;
+	font-family: 'Helvetica';
+}
+
+.main-panel {
+	
+	padding: 10px;
+	color: grey;
+}
+
+.navbar .navbar-inverse {
+	
+}
+
+.app-brand {
+	font-weight: bold;
+}
+
+.search-box {
+	border: none;
+	border-bottom: 1px solid lightgrey;
+	width: 100%;
+}
+
+.explanation-box {
+	color: gray;
+	
+}

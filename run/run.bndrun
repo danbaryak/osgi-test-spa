@@ -52,7 +52,8 @@
 	org.amdatu.security.tokenprovider.impl,\
 	org.amdatu.security.tokenstorage.mongo,\
 	org.amdatu.scheduling.api,\
-	org.amdatu.scheduling.quartz
+	org.amdatu.scheduling.quartz,\
+	org.site.login.ui;version=latest
 	
 
 	
