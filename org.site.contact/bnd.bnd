@@ -6,3 +6,5 @@ X-Web-Resource: contact
 
 X-SPA-JS: contact/js
 X-SPA-CSS: contact/css
+
+Require-Bundle: org.site.about

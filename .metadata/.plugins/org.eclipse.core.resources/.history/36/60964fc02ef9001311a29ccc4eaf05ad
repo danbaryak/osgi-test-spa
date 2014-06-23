@@ -1,0 +1,5 @@
+Bundle-Version: 0.0.0.${tstamp}
+-buildpath:  \
+	osgi.cmpn,\
+	osgi.core,\
+	org.apache.felix.dependencymanager

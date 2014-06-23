@@ -1,0 +1,21 @@
+package org.site.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BundleResources {
+	private String bundleName;
+	
+	private List<String> jsResources = new ArrayList<>();
+	private List<String> jsLibResources = new ArrayList<>();
+	
+	private List<String> cssResources = new ArrayList<>();
+	private List<String> cssLibResources = new ArrayList<>();
+	public BundleResources(String bundleName) {
+		this.bundleName = bundleName;
+	}
+	
+	
+}
+	
+	

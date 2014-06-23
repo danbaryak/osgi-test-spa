@@ -1,0 +1,27 @@
+package org.site.login.mongo;
+
+import java.util.List;
+
+import org.amdatu.mongo.MongoDBService;
+import org.mongojack.JacksonDBCollection;
+import org.site.login.api.User;
+import org.site.login.api.UserService;
+
+import com.mongodb.DBCollection;
+
+public class MongoUserService implements UserService {
+	private MongoDBService mongo;
+	
+	@Override
+	public List<User> getUsers() {
+		DBCollection col = mongo.getDB().getCollection("users");
+		JacksonDBCollection<User, Object> users = JacksonDBCollection.wrap(col, User.class);
+		return null;
+	}
+	
+	@Override
+	public void addUser(User user) {
+		
+	}
+
+}

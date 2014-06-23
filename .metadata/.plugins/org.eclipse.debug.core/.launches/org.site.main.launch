@@ -4,4 +4,5 @@
 <booleanAttribute key="dynamicBundles" value="true"/>
 <stringAttribute key="launchTarget" value="org.site.main"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.site.main"/>
+<booleanAttribute key="trace" value="false"/>
 </launchConfiguration>

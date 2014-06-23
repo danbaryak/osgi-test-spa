@@ -1,0 +1,9 @@
+app.service('mainMenu', [ function() {
+	this.entries = [];
+	this.appName = 'My App';
+	
+	this.add = function(index, name, sref) {
+		this.entries[index] = { name: name, sref: sref };
+	}
+
+} ]);

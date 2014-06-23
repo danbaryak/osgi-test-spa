@@ -1,0 +1,9 @@
+app.directive('fadeIn', function() {
+	return {
+		restrict: 'E',
+		transclude: true,
+		link: function(scope, element, attrs) {
+			
+		}
+	}
+})

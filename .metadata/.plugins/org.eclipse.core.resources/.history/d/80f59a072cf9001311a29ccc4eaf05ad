@@ -1,0 +1,10 @@
+app.directive('fadeIn', function() {
+	return {
+		restrict: 'A',
+		replace: false,
+		link: function(scope, element, attrs) {
+			element.hide();
+			$(element).velocity({opacity: 1}, 2000);
+		}
+	}
+})

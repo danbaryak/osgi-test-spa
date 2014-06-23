@@ -1,0 +1,6 @@
+package org.site.login.rest;
+
+
+public class UserResource {
+
+}

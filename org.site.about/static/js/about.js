@@ -1,22 +1,36 @@
-
-var mainApp = angular.module('mainApp', ['ui.router']);
-
-mainApp.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
     
     $urlRouterProvider.otherwise('/home');
     
     $stateProvider
         
-        // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/home',
             templateUrl: 'about/partials/home.html'
         })
         
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('about', {
         	url: '/about',
         	templateUrl: 'about/partials/about.html'
+        })
+        
+        .state('another', {
+        	url: '/another',
+        	templateUrl: 'about/partials/another.html'
         });
         
 });
+
+app.run(function(mainMenu) {
+	mainMenu.appName = 'My App';
+	mainMenu.appNameRef = 'home';
+	
+	mainMenu.add(0, 'Home', 'home');
+	mainMenu.add(1, 'About it', 'about');
+	mainMenu.add(3, 'Another', 'another');
+});
+
+app.controller('NavCtrl', ['$scope', 'mainMenu', function($scope, mainMenu) {
+	$scope.menu = mainMenu;
+	
+}]);

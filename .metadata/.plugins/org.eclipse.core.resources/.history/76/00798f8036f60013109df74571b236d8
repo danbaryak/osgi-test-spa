@@ -1,4 +1,0 @@
-
-var contactApp = angular.module('contactApp', ['mainApp', 'ui.router'] );
-
-console.log('contact app initialized');

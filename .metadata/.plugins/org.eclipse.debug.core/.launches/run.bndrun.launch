@@ -2,6 +2,6 @@
 <launchConfiguration type="bndtools.launch">
 <booleanAttribute key="clean" value="true"/>
 <booleanAttribute key="dynamicBundles" value="true"/>
-<stringAttribute key="launchTarget" value="org.tsts.main/run.bndrun"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.tsts.main"/>
+<stringAttribute key="launchTarget" value="run/run.bndrun"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="run"/>
 </launchConfiguration>

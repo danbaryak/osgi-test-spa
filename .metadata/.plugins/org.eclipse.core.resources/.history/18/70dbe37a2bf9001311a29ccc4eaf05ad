@@ -1,0 +1,9 @@
+app.directive('buttonBar', function() {
+	return {
+		restrict: 'E',
+		replace: false,
+		link: function(scope, element, attrs) {
+			element.addClass('btn btn-primary');
+		}
+	}
+})

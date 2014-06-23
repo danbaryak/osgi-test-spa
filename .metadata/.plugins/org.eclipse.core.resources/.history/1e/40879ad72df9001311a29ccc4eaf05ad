@@ -1,0 +1,4 @@
+<div fade-in-up>
+	Another page Yes
+	<div fade-in-up delay=1000>this should come in a sec</div>
+</div>

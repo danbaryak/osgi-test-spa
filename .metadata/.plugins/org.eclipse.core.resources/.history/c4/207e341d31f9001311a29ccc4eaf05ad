@@ -1,0 +1,7 @@
+package org.site.login.api;
+
+public class User {
+	private String id;
+	
+	
+}

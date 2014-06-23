@@ -1,0 +1,31 @@
+
+	-buildpath:  \
+	org.apache.felix.dependencymanager,\
+	osgi.cmpn,\
+	osgi.core,\
+	org.apache.felix.http.jetty,\
+	org.apache.felix.http.whiteboard,\
+	org.apache.commons.io
+-sub:  \
+	*.bnd
+-runfw: org.apache.felix.framework;version='[4.2.1,4.2.1]'
+-runee: JavaSE-1.7
+-runbundles:  \
+	osgi.cmpn,\
+	org.apache.felix.gogo.shell,\
+	org.apache.felix.gogo.command,\
+	org.apache.felix.gogo.runtime,\
+	org.apache.felix.dependencymanager,\
+	org.apache.felix.http.jetty,\
+	org.apache.felix.log,\
+	org.apache.httpcomponents.httpcore,\
+	org.apache.felix.http.whiteboard,\
+	org.apache.commons.io,\
+	org.amdatu.web.resourcehandler,\
+	org.apache.commons.fileupload,\
+	org.apache.felix.webconsole,\
+	org.site.about;version=latest,\
+	org.site.contact;version=latest
+	
+
+	
