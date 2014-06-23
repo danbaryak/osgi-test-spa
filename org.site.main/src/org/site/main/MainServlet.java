@@ -1,11 +1,10 @@
 package org.site.main;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -14,72 +13,97 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.Charsets;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.osgi.framework.Bundle;
 
 public class MainServlet extends HttpServlet {
 
-	private List<String> jsFiles = new ArrayList<>();
-	private List<String> jsLibFiles = new ArrayList<>();
-	
-	private List<String> cssFiles = new ArrayList<>();
-	private List<String> cssLibFiles = new ArrayList<>();
+	private static final long serialVersionUID = 1L;
+	private List<BundleResources> resources = new ArrayList<>();
+
 	private String mainContent;
-	
+
 	public void start() {
-		
+
 	}
 
 	public void jsBundleAdded(Bundle bundle) {
-		addFiles(jsFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-JS")));
+		addFiles(getBundleResources(bundle).getJsResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-JS")));
 	}
-	
+
 	public void jsBundleRemoved(Bundle bundle) {
-		removeFiles(jsFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-JS")));
+
+		removeFiles(getBundleResources(bundle).getJsResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-JS")));
 	}
-	
+
 	public void jsLibBundleAdded(Bundle bundle) {
-		addFiles(jsLibFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-JSLIB")));
+		addFiles(getBundleResources(bundle).getJsLibResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-JSLIB")));
 	}
-	
+
 	public void jsLibBundleRemoved(Bundle bundle) {
-		removeFiles(jsLibFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-JSLIB")));
+		removeFiles(getBundleResources(bundle).getJsLibResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-JSLIB")));
 	}
-	
-	
+
 	public void cssBundleAdded(Bundle bundle) {
-		addFiles(cssFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-CSS")));
+		addFiles(getBundleResources(bundle).getCssResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-CSS")));
 	}
-	
+
 	public void cssBundleRemoved(Bundle bundle) {
-		removeFiles(cssFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-CSS")));
+		removeFiles(getBundleResources(bundle).getCssResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-CSS")));
 	}
-	
+
 	public void cssLibBundleAdded(Bundle bundle) {
-		addFiles(cssLibFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-CSSLIB")));
+		addFiles(getBundleResources(bundle).getCssLibResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-CSSLIB")));
 	}
-	
+
 	public void cssLibBundleRemoved(Bundle bundle) {
-		removeFiles(cssLibFiles, bundle, String.valueOf(bundle.getHeaders().get("X-SPA-CSSLIB")));
+		removeFiles(getBundleResources(bundle).getCssLibResources(), bundle,
+				String.valueOf(bundle.getHeaders().get("X-SPA-CSSLIB")));
 	}
+
 	public void mainAdded(Bundle bundle) {
 		System.out.println("Main added");
-		String mainContentPath = String.valueOf(bundle.getHeaders().get("X-SPA-Main"));
-		
+		String mainContentPath = String.valueOf(bundle.getHeaders().get(
+				"X-SPA-Main"));
+
 		try {
-			this.mainContent = IOUtils.toString(bundle.getResource(mainContentPath).openStream());
-			
+			this.mainContent = IOUtils.toString(bundle.getResource(
+					mainContentPath).openStream());
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
+	private BundleResources getBundleResources(Bundle bundle) {
+		String bundleName = bundle.getSymbolicName();
+
+		for (BundleResources res : resources) {
+			if (res.getBundleName().equals(bundleName)) {
+				return res;
+			}
+		}
+		BundleResources res = new BundleResources(bundleName);
+		String[] dependencies = String.valueOf(bundle.getHeaders().get("Require-Bundle")).split(",");
+		res.setBundleDependencies(Arrays.asList(dependencies));
+		resources.add(res);
+		Collections.sort(resources);
+		
+		return res;
+	}
+
 	public void mainRemoved(Bundle bundle) {
 		System.out.println("Main removed");
 	}
+
 	private void addFiles(List<String> list, Bundle bundle, String pathToAdd) {
 		if (pathToAdd.contains(",")) {
 			for (String path : pathToAdd.split(",")) {
@@ -97,8 +121,9 @@ public class MainServlet extends HttpServlet {
 			addFiles(list, bundle, path);
 		}
 	}
-	
-	private void removeFiles(List<String> list, Bundle bundle, String pathToRemove) {
+
+	private void removeFiles(List<String> list, Bundle bundle,
+			String pathToRemove) {
 		if (pathToRemove.contains(",")) {
 			for (String path : pathToRemove.split(",")) {
 				removeFiles(list, bundle, path);
@@ -109,41 +134,53 @@ public class MainServlet extends HttpServlet {
 			list.remove(pathToRemove);
 			return;
 		}
+
 		Enumeration paths = bundle.getEntryPaths(pathToRemove);
 		while (paths.hasMoreElements()) {
 			String path = (String) paths.nextElement();
 			removeFiles(list, bundle, path);
 		}
 	}
-	
-	
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
-		
+
 		out.println("<head>");
-		for (String cssFileName : cssLibFiles) {
-			out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + cssFileName + "\">");
-		}
-		for (String cssFileName : cssFiles) {
-			out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + cssFileName + "\">");
+		for (BundleResources res : resources) {
+			for (String cssFileName : res.getCssLibResources()) {
+				out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\""
+						+ cssFileName + "\">");
+			}
 		}
 		
+		for (BundleResources res : resources) {
+			for (String cssFileName : res.getCssResources()) {
+				out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\""
+						+ cssFileName + "\">");
+			}
+		}
+
 		out.println("<body>");
 		if (mainContent != null) {
 			out.println(mainContent);
-		
+
 		}
 		// add scripts
-		for (String scriptName : jsLibFiles) {
-			out.println("<script src=\"" + scriptName + "\"></script>");
-		}
-		for (String scriptName : jsFiles) {
-			out.println("<script src=\"" + scriptName + "\"></script>");
+		for (BundleResources res : resources) {
+			for (String scriptName : res.getJsLibResources()) {
+				out.println("<script src=\"" + scriptName + "\"></script>");
+			}
 		}
 		
+		for (BundleResources res : resources) {
+			for (String scriptName : res.getJsResources()) {
+				out.println("<script src=\"" + scriptName + "\"></script>");
+			}
+		}
+
 		out.println("</body>");
 		out.println("</html>");
 	}

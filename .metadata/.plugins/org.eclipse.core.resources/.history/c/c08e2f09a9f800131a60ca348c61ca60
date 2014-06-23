@@ -1,0 +1,12 @@
+package org.site.contact.rest;
+
+import javax.ws.rs.Path;
+
+@Path("contact")
+public class ContactResource {
+
+	@Path("get")
+	public String get() {
+		return "Hello";
+	}
+}

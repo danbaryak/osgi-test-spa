@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;org.amdatu.mongo-app.cfg&apos; to &apos;load&apos;&#x0A;- Original project: &apos;org.site.main&apos;&#x0A;- Destination element: &apos;load&apos;&#x0A;- Original element: &apos;org.amdatu.mongo-app.cfg&apos;&#x0A;- Update references to refactored element" description="Move file" element1="org.amdatu.mongo-app.cfg" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1403414135486" target="/run/load" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,3 @@
+Bundle-Activator: org.site.login.rest.Activator
+Private-Package:  \
+	org.site.login.rest

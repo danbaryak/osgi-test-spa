@@ -1,0 +1,37 @@
+package org.site.login.mongo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.amdatu.mongo.MongoDBService;
+import org.mongojack.DBCursor;
+import org.mongojack.JacksonDBCollection;
+import org.site.login.api.User;
+import org.site.login.api.UserService;
+
+import com.mongodb.DBCollection;
+
+public class MongoUserService implements UserService {
+	
+	private volatile MongoDBService mongo;
+	
+	@Override
+	public List<User> getUsers() {
+		DBCollection col = mongo.getDB().getCollection("users");
+		JacksonDBCollection<User, Object> users = JacksonDBCollection.wrap(col, User.class);
+		List<User> result = new ArrayList<User>();
+		DBCursor<User> cursor = users.find();
+		while (cursor.hasNext()) {
+			result.add(cursor.next());
+		}
+		return result;
+	}
+	
+	@Override
+	public void addUser(User user) {
+		DBCollection col = mongo.getDB().getCollection("users");
+		JacksonDBCollection<User, Object> users = JacksonDBCollection.wrap(col, User.class);
+		users.save(user);
+	}
+
+}

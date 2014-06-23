@@ -1,0 +1,11 @@
+app.service('mainMenu', [ function() {
+	this.entries = [];
+
+	this.addMenuEntry = function(name, sref) {
+		entries.push({
+			name : name,
+			sref : sref
+		});
+	};
+
+} ]);

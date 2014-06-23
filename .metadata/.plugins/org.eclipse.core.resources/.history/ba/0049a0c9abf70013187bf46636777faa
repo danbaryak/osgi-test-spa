@@ -1,0 +1,8 @@
+app.factory('mainMenu', [function() {
+	var entries = [];
+	return {
+		addMenuEntry: function(name, sref) {
+			
+		}
+	}
+}]);

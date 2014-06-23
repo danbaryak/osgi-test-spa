@@ -1,0 +1,19 @@
+package org.site.login.rest;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+import org.site.login.api.User;
+import org.site.login.api.UserService;
+
+@Path("users")
+public class UserResource {
+
+	private volatile UserService userService;
+	@GET
+	public List<User> getUsers() {
+		
+	}
+}

@@ -1,0 +1,17 @@
+body {
+	background: black;
+	color: yellow;
+	font-size: 26px;
+	font-family: 'Helvetica';
+	
+}
+
+.main-panel {
+	background: blue;
+	padding: 10px;
+	color: white;
+}
+
+.navbar .navbar-inverse {
+	background: green;	
+}

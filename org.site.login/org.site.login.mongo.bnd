@@ -1,0 +1,3 @@
+Bundle-Activator: org.site.login.mongo.Activator
+Private-Package:  \
+	org.site.login.mongo

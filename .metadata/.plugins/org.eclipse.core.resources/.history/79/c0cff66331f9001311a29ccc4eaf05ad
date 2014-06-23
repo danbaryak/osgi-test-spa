@@ -1,0 +1,7 @@
+package org.site.login.mongo;
+
+import org.site.login.api.UserService;
+
+public class MongoUserService implements UserService {
+
+}

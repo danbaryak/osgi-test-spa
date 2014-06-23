@@ -1,0 +1,22 @@
+Bundle-Version: 0.0.0.${tstamp}
+Include-Resource: about=static
+				  
+X-Web-Resource-Version: 1.0
+X-Web-Resource: about
+
+X-SPA-JSLIB:\
+	about/lib/js/jquery-1.11.1.min.js,\
+	about/lib/js/bootstrap.min.js,\
+	about/lib/js/angular.min.js,\
+	about/lib/js/angular-ui-router.min.js
+	
+X-SPA-CSSLIB: about/lib/css
+
+X-SPA-JS:\
+		about/js/services,\
+		about/js/about.js
+
+X-SPA-CSS: about/css
+
+X-SPA-Main: about/main.html
+

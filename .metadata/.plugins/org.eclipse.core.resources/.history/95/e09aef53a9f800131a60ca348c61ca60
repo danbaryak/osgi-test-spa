@@ -1,0 +1,10 @@
+Bundle-Version: 0.0.0.${tstamp}
+Private-Package:  \
+	org.site.contact.rest
+Service-Component:  \
+	*
+-buildpath:  \
+	osgi.cmpn,\
+	osgi.core,\
+	org.amdatu.web.rest.jaxrs
+Bundle-Activator: org.site.contact.rest.Activator

@@ -9,3 +9,11 @@
 1402995515200	Delete element
 1402995519545	Delete element
 1403014122348	Delete element
+1403102222499	Encapsulate field 'bundleName'
+1403102230866	Encapsulate field 'bundleDependencies'
+1403102236039	Encapsulate field 'jsResources'
+1403102241387	Encapsulate field 'jsLibResources'
+1403102246208	Encapsulate field 'cssResources'
+1403102252094	Encapsulate field 'cssLibResources'
+1403347450041	Rename resource 'org.amdatu.mongo-webshop.cfg'
+1403349005598	Move file
