@@ -1,0 +1,11 @@
+/**
+ * Service defining the main application navigation menu.
+ */
+app.service('mainMenu', [ function() {
+	this.entries = [];
+	this.appName = 'My App';
+	this.appNameRef = '';
+	this.add = function(index, name, sref) {
+		this.entries[index] = { name: name, sref: sref };
+	}
+} ]);

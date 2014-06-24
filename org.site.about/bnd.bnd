@@ -9,6 +9,7 @@ X-SPA-JSLIB:\
 	about/lib/js/bootstrap.min.js,\
 	about/lib/js/angular.min.js,\
 	about/lib/js/angular-ui-router.min.js,\
+	about/lib/js/angular-cookies.js,\
 	about/lib/js/jquery.velocity.min.js
 	
 X-SPA-CSSLIB: about/lib/css

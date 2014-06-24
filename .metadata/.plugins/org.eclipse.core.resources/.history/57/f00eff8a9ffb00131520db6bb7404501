@@ -1,0 +1,5 @@
+<div fade-in class="contact">
+	<h1>Contact Us</h1>
+	<a ui-sref=".message">Click me pleassse</a>
+	<div ui-view></div>
+</div>

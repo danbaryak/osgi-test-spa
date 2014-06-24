@@ -1,0 +1,11 @@
+package org.site.login.api;
+
+public class GoogleUser {
+	private String id;
+	private String displayName;
+	private String firstName;
+	private String lastName;
+	private String accessToken;
+	
+	
+}

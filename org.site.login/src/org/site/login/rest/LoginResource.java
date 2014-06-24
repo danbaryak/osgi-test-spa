@@ -16,22 +16,26 @@ import javax.ws.rs.core.Response;
 import org.amdatu.security.tokenprovider.InvalidTokenException;
 import org.amdatu.security.tokenprovider.TokenProvider;
 import org.amdatu.security.tokenprovider.TokenProviderException;
+import org.site.login.api.GoogleUser;
+import org.site.login.api.User;
 
 @Path("googlelogin")
 public class LoginResource {
 
 	private volatile TokenProvider tokenProvider;
 
-//	@POST
-//	@Consumes("application/json")
-//	public Response googleLogin(GoogleUser user) throws TokenProviderException {
-//		SortedMap<String, String> userMap = new TreeMap<>();
-//		userMap.put(TokenProvider.USERNAME, user.getId());
-//		userMap.put("googletoken", user.getAccess_token());
-//		String token = tokenProvider.generateToken(userMap);
-//		return Response.ok().cookie(new NewCookie("amdatu_token", token))
-//				.build();
-//	}
+	@POST
+	@Consumes("application/json")
+	public Response googleLogin(GoogleUser user) throws TokenProviderException {
+		SortedMap<String, String> userMap = new TreeMap<>();
+		userMap.put(TokenProvider.USERNAME, user.getId());
+		userMap.put("googletoken", user.getAccessToken());
+		System.out.println("Google access token is " + user.getAccessToken());
+		String token = tokenProvider.generateToken(userMap);
+		System.out.println("Generated token " + token);
+		return Response.ok().cookie(new NewCookie("amdatu_token", token))
+				.build();
+	}
 
 	@GET
 	@Produces("text/plain")
@@ -42,4 +46,6 @@ public class LoginResource {
 				.verifyToken(token);
 		return tokenProperties.get("googletoken");
 	}
+		
+
 }

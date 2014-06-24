@@ -25,9 +25,8 @@ app.run(function(mainMenu) {
 	mainMenu.appName = 'My App';
 	mainMenu.appNameRef = 'home';
 	
-	mainMenu.add(0, 'Home', 'home');
-	mainMenu.add(1, 'About it', 'about');
-	mainMenu.add(3, 'Another', 'another');
+	mainMenu.add(1, 'About', 'about');
+	mainMenu.add(3, 'Why', 'another');
 });
 
 app.controller('NavCtrl', ['$scope', 'mainMenu', function($scope, mainMenu) {

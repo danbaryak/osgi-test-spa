@@ -1,0 +1,14 @@
+app.service('UserService', [ function() {
+	
+	this.loggedIn = false;
+	this.user = null;
+	
+	this.loginSuccess = function(authResult) {
+		this.user = {
+			displayName: authResult.displayName
+		};
+		console.log('in loginSuccess(). user is ' + JSON.stringify(authResult));
+		this.loggedIn = true;
+	}
+	
+}]);

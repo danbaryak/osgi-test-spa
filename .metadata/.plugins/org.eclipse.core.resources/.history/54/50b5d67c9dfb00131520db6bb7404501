@@ -1,0 +1,7 @@
+<div fade-in-up>
+	<h2>Welcome</h2>
+	<div class="explanation-box" fade delay=200>
+		Some explanation goes here<br>
+		And another line
+	</div>
+</div>

@@ -33,7 +33,8 @@ public class MainServlet extends HttpServlet {
 	}
 
 	public void jsBundleRemoved(Bundle bundle) {
-
+		System.out.println("Removing JS lib for bundle "
+				+ bundle.getSymbolicName());
 		removeFiles(getBundleResources(bundle).getJsResources(), bundle,
 				String.valueOf(bundle.getHeaders().get("X-SPA-JS")));
 	}
@@ -85,19 +86,27 @@ public class MainServlet extends HttpServlet {
 
 	private BundleResources getBundleResources(Bundle bundle) {
 		String bundleName = bundle.getSymbolicName();
-
+		String[] dependencies = String.valueOf(
+				bundle.getHeaders().get("Require-Bundle")).split(",");
+		BundleResources result = null;
 		for (BundleResources res : resources) {
 			if (res.getBundleName().equals(bundleName)) {
-				return res;
+				result = res;
+				break;
 			}
 		}
-		BundleResources res = new BundleResources(bundleName);
-		String[] dependencies = String.valueOf(bundle.getHeaders().get("Require-Bundle")).split(",");
-		res.setBundleDependencies(Arrays.asList(dependencies));
-		resources.add(res);
-		Collections.sort(resources);
 		
-		return res;
+		if (result == null) {
+			result = new BundleResources(bundleName);
+			resources.add(result);
+		}
+		result.setBundleDependencies(Arrays.asList(dependencies));
+		Collections.sort(resources);
+		System.out.println("Resources order: ");
+		for (BundleResources resource : resources) {
+			System.out.println(resource.getBundleName());
+		}
+		return result;
 	}
 
 	public void mainRemoved(Bundle bundle) {
@@ -155,26 +164,26 @@ public class MainServlet extends HttpServlet {
 						+ cssFileName + "\">");
 			}
 		}
-		
+
 		for (BundleResources res : resources) {
 			for (String cssFileName : res.getCssResources()) {
 				out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\""
 						+ cssFileName + "\">");
 			}
 		}
-
+		for (BundleResources res : resources) {
+			for (String scriptName : res.getJsLibResources()) {
+				out.println("<script src=\"" + scriptName + "\"></script>");
+			}
+		}
+		out.println("</head>");
 		out.println("<body>");
 		if (mainContent != null) {
 			out.println(mainContent);
 
 		}
 		// add scripts
-		for (BundleResources res : resources) {
-			for (String scriptName : res.getJsLibResources()) {
-				out.println("<script src=\"" + scriptName + "\"></script>");
-			}
-		}
-		
+
 		for (BundleResources res : resources) {
 			for (String scriptName : res.getJsResources()) {
 				out.println("<script src=\"" + scriptName + "\"></script>");

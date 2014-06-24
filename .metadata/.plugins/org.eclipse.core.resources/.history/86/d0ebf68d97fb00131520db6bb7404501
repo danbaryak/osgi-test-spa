@@ -1,0 +1,20 @@
+<div ng-app="app">
+
+	<nav class="navbar navbar-default" role="navigation" ng-controller="NavCtrl">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="{{menu.appNameRef}}"><span class="app-brand">{{menu.appName}}</span></a>
+		</div>
+		<ul ng-repeat="m in menu.entries" class="nav navbar-nav">
+			<li ng-hide="m.hidden"><a ui-sref="{{m.sref}}">{{m.name}}</a></li>
+		</ul>
+		<div class="nav navbar-right  navbar-nav">
+		</div>
+	</nav>
+
+	<!-- MAIN CONTENT -->
+	<div class="container">
+	
+		<div ui-view></div>
+
+	</div>
+</div>

@@ -1,7 +1,5 @@
 package org.site.login.rest;
 
-import java.util.List;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,9 +14,10 @@ public class UserResource {
 	private volatile UserService userService;
 	
 	@GET
+	@Path("me")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<User> getUsers() {
-		return userService.getUsers();
+	public User getCurrentUser() {
+		return new User("danbar");
 	}
 	
 }

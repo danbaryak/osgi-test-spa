@@ -1,0 +1,10 @@
+Bundle-Version: 0.0.0.${tstamp}
+Include-Resource: contact=static
+				  
+X-Web-Resource-Version: 1.0
+X-Web-Resource: contact
+
+X-SPA-JS: contact/js
+X-SPA-CSS: contact/css
+
+Require-Bundle: org.site.about

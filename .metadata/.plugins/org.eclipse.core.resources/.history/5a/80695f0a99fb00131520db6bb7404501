@@ -1,0 +1,11 @@
+app.service('UserService', [ function() {
+	
+	this.loggedIn = false;
+	this.user = null;
+	
+	this.loginSuccess(user) {
+		this.user = user;
+		this.loggedIn = true;
+	}
+	
+}]);

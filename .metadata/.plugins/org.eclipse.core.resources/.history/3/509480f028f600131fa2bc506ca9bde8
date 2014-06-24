@@ -1,7 +1,0 @@
-Bundle-Version: 0.0.0.${tstamp}
-Private-Package:  \
-	org.site.main
-Service-Component:  \
-	*
-
-Bundle-Activator: org.site.main.Activator

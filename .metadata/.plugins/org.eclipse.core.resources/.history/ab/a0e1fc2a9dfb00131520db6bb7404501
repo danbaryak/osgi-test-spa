@@ -1,0 +1,38 @@
+body {
+	background: white;
+	color: black;
+	font-size: 18px;
+	font-family: 'Helvetica';
+}
+
+.main-panel {
+	
+	padding: 10px;
+	color: grey;
+}
+
+.navbar .navbar-inverse {
+	
+}
+
+.app-brand {
+	font-weight: bold;
+}
+
+.search-box {
+	border: none;
+	border-bottom: 1px solid lightgrey;
+	width: 100%;
+}
+.navbar-default {
+	background-color: blue;
+}
+
+.explanation-box {
+	color: white;
+	background: #B28DBA;
+	border-radius: 10px;
+	padding: 10px;
+	
+	
+}

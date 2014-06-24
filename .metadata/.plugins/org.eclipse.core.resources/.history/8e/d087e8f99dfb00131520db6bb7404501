@@ -1,0 +1,5 @@
+<div class="contact jumbotron">
+	<h1>Contact Us</h1>
+	<a ui-sref=".message">Click me</a>
+	<div ui-view></div>
+</div>

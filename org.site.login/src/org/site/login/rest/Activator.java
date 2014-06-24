@@ -1,5 +1,6 @@
 package org.site.login.rest;
 
+import org.amdatu.security.tokenprovider.TokenProvider;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.osgi.framework.BundleContext;
@@ -22,6 +23,11 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(Object.class.getName(), null)
 				.setImplementation(UserResource.class)
 				.add(createServiceDependency().setService(UserService.class).setRequired(true)));
+		manager.add(createComponent()
+				.setInterface(Object.class.getName(), null)
+				.setImplementation(LoginResource.class)
+				.add(createServiceDependency().setService(TokenProvider.class).setRequired(true)));
+				
 		
 	}
 
